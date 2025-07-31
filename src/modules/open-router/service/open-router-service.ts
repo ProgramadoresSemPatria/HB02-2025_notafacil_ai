@@ -21,7 +21,7 @@ const openai = new OpenAI({
 });
 
 export class OpenRouterService {
-  async sendMessageToGpt(message: string): Promise<string | null> {
+  async createInvoice(invoiceData: any): Promise<string | null> {
     if (!API_KEY) {
       throw new Error('OpenAI API key is not set in environment variables.');
     }
@@ -35,7 +35,7 @@ export class OpenRouterService {
           messages: [
             {
               role: 'user',
-              content: message,
+              content: JSON.stringify(invoiceData),
             },
           ],
         });
