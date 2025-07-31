@@ -34,6 +34,11 @@ export class OpenRouterService {
           model: 'openai/gpt-3.5-turbo',
           messages: [
             {
+              role: 'system',
+              content:
+                'Você é um assistente especializado em processamento de notas fiscais. Analise os dados fornecidos e gere uma resposta estruturada e precisa.',
+            },
+            {
               role: 'user',
               content: JSON.stringify(invoiceData),
             },
